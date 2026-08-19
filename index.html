@@ -385,7 +385,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
         <span class="ws-icon">🗂️</span>
         <div>
           <div class="ws-title">مفرداتك بكل لغاتها</div>
-          <div class="ws-desc">8 لغات: 🇸🇦 🇬🇧 🇫🇷 🇪🇸 🇩🇪 🇹🇷 🇷🇺 🇮🇷 — استورد وصدّر CSV</div>
+          <div class="ws-desc">9 لغات: 🇸🇦 🇬🇧 🇫🇷 🇪🇸 🇩🇪 🇹🇷 🇷🇺 🇮🇷 🇰🇷 — استورد وصدّر CSV</div>
         </div>
       </div>
 
@@ -489,6 +489,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
             <option value="tr">🇹🇷 Türkçe</option>
             <option value="ru">🇷🇺 Русский</option>
             <option value="fa">🇮🇷 فارسی</option>
+            <option value="ko">🇰🇷 한국어</option>
           </select>
           <button class="swap" onclick="swapL()">⇄</button>
           <select class="lsel" id="lt">
@@ -500,6 +501,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
             <option value="tr">🇹🇷 Türkçe</option>
             <option value="ru">🇷🇺 Русский</option>
             <option value="fa">🇮🇷 فارسی</option>
+            <option value="ko">🇰🇷 한국어</option>
           </select>
         </div>
       </div>
@@ -553,6 +555,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
           <button class="pill" onclick="loadSmp('tr')">🇹🇷 Türkçe</button>
           <button class="pill" onclick="loadSmp('ru')">🇷🇺 Русский</button>
           <button class="pill" onclick="loadSmp('fa')">🇮🇷 فارسی</button>
+          <button class="pill" onclick="loadSmp('ko')">🇰🇷 한국어</button>
         </div>
       </div>
       <div id="ipw"><img id="ipr" src="" alt=""/></div>
@@ -627,6 +630,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
               <option value="tr">🇹🇷 تركي</option>
               <option value="ru">🇷🇺 روسي</option>
               <option value="fa">🇮🇷 فارسي</option>
+              <option value="ko">🇰🇷 كوري</option>
               <option value="ar">🇸🇦 عربي</option>
             </select>
             <select id="suggest-level" style="padding:8px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.83rem;outline:none">
@@ -787,6 +791,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
               <button onclick="filterLangDrop('tr')" class="lang-filter-btn" data-lang="tr">🇹🇷 تركي</button>
               <button onclick="filterLangDrop('ru')" class="lang-filter-btn" data-lang="ru">🇷🇺 روسي</button>
               <button onclick="filterLangDrop('fa')" class="lang-filter-btn" data-lang="fa">🇮🇷 فارسي</button>
+              <button onclick="filterLangDrop('ko')" class="lang-filter-btn" data-lang="ko">🇰🇷 كوري</button>
             </div>
           </div>
         </div>
@@ -1294,6 +1299,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
             <option value="tr">🇹🇷 تركي</option>
             <option value="ru">🇷🇺 روسي</option>
             <option value="fa">🇮🇷 فارسي</option>
+            <option value="ko">🇰🇷 كوري</option>
           </select>
           <button onclick="clearChat()" style="flex:none;padding:10px 18px;border-radius:10px;border:none;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;cursor:pointer;font-size:1.1rem;font-family:'Cairo',sans-serif">
             🗑️
@@ -1583,7 +1589,8 @@ body.dark .qpick-btn,body.night .qpick-btn{background:var(--surface);border-colo
           <button onclick="setYtLang('de')" class="yt-lang-btn" data-l="de" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇩🇪 ألماني</button>
           <button onclick="setYtLang('ar')" class="yt-lang-btn" data-l="ar" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇸🇦 عربي</button>
           <button onclick="setYtLang('tr')" class="yt-lang-btn" data-l="tr" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇹🇷 تركي</button>
-          <button onclick="setYtLang('fa')" class="yt-lang-btn" data-l="fa" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇮🇷 فارسي</button>
+          <button onclick="setYtLang('ko')" class="yt-lang-btn" data-l="ko" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇰🇷 كوري</button>
+        <button onclick="setYtLang('fa')" class="yt-lang-btn" data-l="fa" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇮🇷 فارسي</button>
         <button onclick="setYtLang('ru')" class="yt-lang-btn" data-l="ru" style="padding:8px 4px;border-radius:9px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;font-size:.8rem;cursor:pointer">🇷🇺 روسي</button>
         </div>
       </div>
@@ -1698,7 +1705,8 @@ var SMP={
   de:'Künstliche Intelligenz revolutioniert die Bildung grundlegend. Schüler können jetzt Sprachen interaktiv und ansprechend lernen, was den Wortschatzerwerb beschleunigt und das Leseverständnis verbessert.',
   tr:'Yapay zeka eğitimi köklü biçimde devrimleştiriyor. Öğrenciler artık dilleri etkileşimli bir şekilde öğrenebilir, bu da kelime edinimini hızlandırır ve okuma anlayışını geliştirir.',
   ru:'Искусственный интеллект революционизирует образование. Студенты теперь могут изучать языки в интерактивном режиме, что значительно ускоряет усвоение словарного запаса и улучшает понимание прочитанного.',
-  fa:'هوش مصنوعی آموزش را متحول می‌کند. دانش‌آموزان اکنون می‌توانند زبان‌ها را به صورت تعاملی یاد بگیرند، که یادگیری واژگان را تسریع می‌کند و درک مطلب را بهبود می‌بخشد.'
+  fa:'هوش مصنوعی آموزش را متحول می‌کند. دانش‌آموزان اکنون می‌توانند زبان‌ها را به صورت تعاملی یاد بگیرند، که یادگیری واژگان را تسریع می‌کند و درک مطلب را بهبود می‌بخشد.',
+  ko:'인공지능이 교육을 혁신하고 있습니다. 학생들은 이제 언어를 대화형으로 배울 수 있으며, 이는 어휘 습득을 크게 가속화하고 독해력을 향상시킵니다.'
 };
 
 /* STORAGE */
@@ -2075,7 +2083,7 @@ function closePrintMenu(){
 
 function doPrint(type){
   closePrintMenu();
-  var langNames={ar:'🇸🇦 عربية',en:'🇬🇧 إنجليزية',fr:'🇫🇷 فرنسية',es:'🇪🇸 إسبانية',de:'🇩🇪 ألمانية',tr:'🇹🇷 تركية',ru:'🇷🇺 روسية',fa:'🇮🇷 فارسية'};
+  var langNames={ar:'🇸🇦 عربية',en:'🇬🇧 إنجليزية',fr:'🇫🇷 فرنسية',es:'🇪🇸 إسبانية',de:'🇩🇪 ألمانية',tr:'🇹🇷 تركية',ru:'🇷🇺 روسية',fa:'🇮🇷 فارسية',ko:'🇰🇷 كورية'};
   var date=new Date().toLocaleDateString('ar-DZ',{year:'numeric',month:'long',day:'numeric'});
   var body='';
 
@@ -2714,7 +2722,7 @@ function toggleYtLangPanel(){
 
 function setYtLang(l){
   ytLang = l;
-  var langLabels={en:'🇬🇧 إنجليزي',fr:'🇫🇷 فرنسي',es:'🇪🇸 إسباني',de:'🇩🇪 ألماني',ar:'🇸🇦 عربي',tr:'🇹🇷 تركي',ru:'🇷🇺 روسي',fa:'🇮🇷 فارسي'};
+  var langLabels={en:'🇬🇧 إنجليزي',fr:'🇫🇷 فرنسي',es:'🇪🇸 إسباني',de:'🇩🇪 ألماني',ar:'🇸🇦 عربي',tr:'🇹🇷 تركي',ru:'🇷🇺 روسي',fa:'🇮🇷 فارسي',ko:'🇰🇷 كوري'};
   var lbl=document.getElementById('yt-lang-label');
   if(lbl)lbl.textContent=langLabels[l]||l;
   document.querySelectorAll('.yt-lang-btn').forEach(function(b){
@@ -2819,7 +2827,7 @@ function fetchYtWithGroq(vid, url, btn){
   if(!btn) btn=document.getElementById('yt-fetch-btn');
   setYtStatus('🤖 يستخدم الذكاء الاصطناعي لجلب محتوى الفيديو…', true);
 
-  var langNames={en:'English',fr:'French',es:'Spanish',de:'German',ar:'Arabic',tr:'Turkish',ru:'Russian',fa:'Persian'};
+  var langNames={en:'English',fr:'French',es:'Spanish',de:'German',ar:'Arabic',tr:'Turkish',ru:'Russian',fa:'Persian',ko:'Korean'};
   var langName = langNames[ytLang] || ytLang;
 
   // جلب عنوان الفيديو من oEmbed مع timeout
@@ -2946,7 +2954,7 @@ function runOCRBlob(blob){
     document.getElementById('ost').textContent='جارٍ استخراج النص…';
     var lf=document.getElementById('lf');
     var langVal=lf?lf.value:'en';
-    var langMap={ar:'ara',en:'eng',fr:'fre',es:'spa',de:'ger',tr:'tur',ru:'rus',fa:'fas'};
+    var langMap={ar:'ara',en:'eng',fr:'fre',es:'spa',de:'ger',tr:'tur',ru:'rus',fa:'fas',ko:'kor'};
 
     // دالة مساعدة لإرسال طلب OCR
     function ocrRequest(ocrLang){
@@ -3001,7 +3009,7 @@ function runOCRBlob(blob){
             document.getElementById('fix-btn').style.display='flex';
             document.getElementById('extra-row').style.display='flex';
             // نكتشف اللغة الفعلية من النص المستخرج بدل الافتراض
-            var langNames={ar:'عربي',en:'إنجليزي',fr:'فرنسي',es:'إسباني',de:'ألماني',tr:'تركي',ru:'روسي',fa:'فارسي'};
+            var langNames={ar:'عربي',en:'إنجليزي',fr:'فرنسي',es:'إسباني',de:'ألماني',tr:'تركي',ru:'روسي',fa:'فارسي',ko:'كوري'};
             var detectedLang=detLang(best);
             var langLabel=langNames[detectedLang]||detectedLang;
             toast('✅ تم الاستخراج ('+langLabel+') — اضغط قراءة');
@@ -3057,7 +3065,7 @@ function detLangCode(tx){
 }
 
 function transWithGroq(tx,f,t){
-  var langNames={ar:'العربية',en:'الإنجليزية',fr:'الفرنسية',es:'الإسبانية',de:'الألمانية',tr:'التركية',ru:'الروسية',fa:'الفارسية'};
+  var langNames={ar:'العربية',en:'الإنجليزية',fr:'الفرنسية',es:'الإسبانية',de:'الألمانية',tr:'التركية',ru:'الروسية',fa:'الفارسية',ko:'الكورية'};
   fetch('https://api.groq.com/openai/v1/chat/completions',{
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
@@ -3570,6 +3578,7 @@ function showSimpleExample(word,trans,lang,exDiv,btn){
     'tr':['Öğrenci bugün "'+word+'" kelimesini öğreniyor.','الطالب يتعلم كلمة "'+cleanTrans+'" اليوم.'],
     'ru':['Студент сегодня изучает слово "'+word+'".','الطالب يتعلم كلمة "'+cleanTrans+'" اليوم.'],
     'fa':['دانش‌آموز امروز کلمه "'+word+'" را یاد می‌گیرد.','الطالب يتعلم كلمة "'+cleanTrans+'" اليوم.'],
+    'ko':['학생이 오늘 "'+word+'" 단어를 배웁니다.','الطالب يتعلم كلمة "'+cleanTrans+'" اليوم.'],
     'ar':['الطالب يتعلم كلمة "'+word+'" اليوم.','The student learns the word "'+cleanTrans+'" today.']
   };
   var tpl=templates[lang]||templates['en'];
@@ -3768,13 +3777,16 @@ function getBestVoice(langCode){
     for(var i=0;i<faV.length;i++){var g=voices.find(function(v){return v.lang===faV[i];});if(g)return g;}
     return voices.find(function(v){return v.lang.startsWith('fa');})||voices.find(function(v){return v.lang.startsWith('ar');})||null;
   }
+  if(langCode.startsWith('ko')){
+    return voices.find(function(v){return v.lang==='ko-KR';})||voices.find(function(v){return v.lang.startsWith('ko');})||null;
+  }
   var base=langCode.split('-')[0];
   return voices.find(function(v){return v.lang.startsWith(base);})||null;
 }
 
 function getRVoice(lang){
   var map={ar:'Arabic Male','ar-SA':'Arabic Male',en:'UK English Male','en-US':'US English Male',
-    fr:'French Female',es:'Spanish Female',de:'Deutsch Female',tr:'Turkish Female',ru:'Russian Female',fa:'Persian Female'};
+    fr:'French Female',es:'Spanish Female',de:'Deutsch Female',tr:'Turkish Female',ru:'Russian Female',fa:'Persian Female',ko:'Korean Female'};
   return map[lang]||map[lang.split('-')[0]]||'UK English Male';
 }
 
@@ -4070,7 +4082,7 @@ function useFallbackTTS(tx,lang){
   }
 }
 
-function loc(l){var m={ar:'ar-SA',en:'en-US',fr:'fr-FR',es:'es-ES',de:'de-DE',tr:'tr-TR',ru:'ru-RU',fa:'fa-IR'};return m[l]||l||'ar-SA';}
+function loc(l){var m={ar:'ar-SA',en:'en-US',fr:'fr-FR',es:'es-ES',de:'de-DE',tr:'tr-TR',ru:'ru-RU',fa:'fa-IR',ko:'ko-KR'};return m[l]||l||'ar-SA';}
 function chgF(d){fs=Math.max(12,Math.min(28,fs+d));document.getElementById('fsv').textContent=fs;document.getElementById('ra').style.fontSize=fs+'px';}
 function chgS(d){spd=Math.max(0.5,Math.min(2.0,Math.round((spd+d)*4)/4));document.getElementById('ssv').textContent='⚡'+spd.toFixed(2)+'×';}
 
@@ -4443,12 +4455,42 @@ function refNotifStatus(){
     document.getElementById('notif-time').value=time;
   } else if(perm==='denied'){
     el.style.cssText='background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#ef4444';
-    el.textContent='❌ محظورة — فعّلها من إعدادات Chrome';
+    el.textContent='❌ محظورة — اضغط هنا لتفعيلها';
+    el.style.cursor='pointer';
+    el.onclick=function(){showNotifGuide();};
   } else {
     el.style.cssText='background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);color:#f97316';
     el.textContent='⚠️ غير مفعّل — اضغط تفعيل';
   }
 }
+
+function showNotifGuide(){
+  var isAndroid=/Android/.test(navigator.userAgent);
+  var isLocal=location.protocol==='file:'||location.href.indexOf('content://')===0;
+  var msg='';
+  if(isLocal){
+    msg='التطبيق يعمل محلياً.\n\nللإشعارات:\n١. ارفع الملف على GitHub Pages\n٢. افتح الرابط في Chrome\n٣. اضغط تفعيل الإشعارات';
+  } else if(isAndroid){
+    msg='لتفعيل الإشعارات في Chrome:\n\n١. اضغط ⋮ (القائمة العلوية)\n٢. اختر "الإعدادات"\n٣. اختر "إعدادات الموقع"\n٤. اختر "الإشعارات"\n٥. ابحث عن هذا الموقع وفعّله';
+  } else {
+    msg='لتفعيل الإشعارات:\n\n١. اضغط على 🔒 في شريط العنوان\n٢. اختر "إعدادات الموقع"\n٣. غيّر "الإشعارات" إلى "سماح"\n٤. أعد تحميل الصفحة وفعّل الإشعار';
+  }
+  var old=document.getElementById('notif-guide-modal');
+  if(old)old.remove();
+  var m=document.createElement('div');
+  m.id='notif-guide-modal';
+  m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99999;display:flex;align-items:flex-end;justify-content:center';
+  m.innerHTML='<div style="background:var(--surface);border-radius:20px 20px 0 0;padding:22px 18px 32px;width:100%;max-width:480px;direction:rtl">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">'
+    +'<button onclick="document.getElementById(\'notif-guide-modal\').remove()" style="background:var(--bg);border:none;border-radius:8px;padding:5px 11px;font-size:1rem;cursor:pointer;color:var(--muted)">✕</button>'
+    +'<span style="font-size:1rem;font-weight:700;color:var(--text)">🔔 تفعيل الإشعارات</span>'
+    +'</div>'
+    +'<div style="background:var(--bg);border-radius:12px;padding:14px 16px;font-size:.88rem;color:var(--text);line-height:2.2;white-space:pre-line;text-align:right">'+msg+'</div>'
+    +'</div>';
+  m.onclick=function(e){if(e.target===m)m.remove();};
+  document.body.appendChild(m);
+}
+
 function enableNotif(){
   if(!('Notification' in window)){toast('⚠️ المتصفح لا يدعم الإشعارات');return;}
   Notification.requestPermission().then(function(perm){
@@ -4457,7 +4499,9 @@ function enableNotif(){
       _ls.setItem('ll_notif_time',time);
       scheduleNotif(time);refNotifStatus();
       toast('✅ تم تفعيل الإشعار الساعة '+time);
-    } else {toast('❌ تم رفض الإشعارات — فعّلها من إعدادات Chrome');}
+    } else if(perm==='denied'){
+      showNotifGuide();
+    } else {toast('❌ تم رفض الإشعارات');}
   });
 }
 function scheduleNotif(time){
@@ -4942,7 +4986,7 @@ var OB_STEPS=[
   {icon:'🔤',title:'مرحباً بك في LinguaLens!',desc:'تطبيقك الذكي لتعلم اللغات — يجمع بين الذكاء الاصطناعي وأساليب التعلم الحديثة في منصة واحدة.',features:[]},
   {icon:'🔍',title:'الماسح',desc:'أضف نصوصك بطرق متعددة وابدأ التعلم فوراً.',features:['📷 استخراج نص من صور (OCR)','✍️ كتابة أو لصق نص مباشرة','🔗 جلب نص من رابط إنترنت','📄 رفع ملف PDF أو TXT','📺 استيراد ترجمة YouTube']},
   {icon:'📖',title:'القراءة التفاعلية',desc:'اقرأ النصوص الحقيقية بأسلوب تفاعلي يُسرّع تعلمك.',features:['👆 اضغط أي كلمة لترجمتها وحفظها','🔊 نطق صوتي متعدد اللغات','✍️ خط اليد للنصوص اللاتينية','🤖 شرح وتحليل النص بـ AI','📝 دفتر ملاحظات مدمج']},
-  {icon:'🗂️',title:'مفرداتي',desc:'مكتبتك الشخصية من المفردات المحفوظة.',features:['🔍 بحث وفلترة حسب اللغة','📥 تصدير CSV · 📤 استيراد CSV','🌍 8 لغات: عربي · فرنسي · إنجليزي · إسباني','🇩🇪 ألماني · 🇹🇷 تركي · 🇷🇺 روسي · 🇮🇷 فارسي']},
+  {icon:'🗂️',title:'مفرداتي',desc:'مكتبتك الشخصية من المفردات المحفوظة.',features:['🔍 بحث وفلترة حسب اللغة','📥 تصدير CSV · 📤 استيراد CSV','🌍 9 لغات: عربي · فرنسي · إنجليزي · إسباني','🇩🇪 ألماني · 🇹🇷 تركي · 🇷🇺 روسي · 🇮🇷 فارسي · 🇰🇷 كوري']},
   {icon:'🃏',title:'اختبارات وألعاب',desc:'راجع مفرداتك بأساليب ممتعة ومتنوعة.',features:['📅 نظام SRS للمراجعة اليومية الذكية','⚡ صواب/خطأ · ✍️ اكتب الترجمة','🎧 إملاء صوتي · 🔗 مطابقة','⭐ كلمة اليوم · 🎯 تحدي الأسبوع']},
   {icon:'🗣️',title:'محادثة AI',desc:'تحدث باللغة التي تتعلمها مع ذكاء اصطناعي.',features:['💬 محادثة حرة بأي لغة','✏️ تصحيح أخطائك تلقائياً','🎯 AI يسألك أسئلة للتدريب','🎙️ إدخال صوتي بالميكروفون']},
   {icon:'📊',title:'تتبع تقدمك',desc:'راقب نموك وحافظ على دافعيتك يومياً.',features:['🔥 سلسلة الأيام المتواصلة','📅 ملخص أسبوعي قابل للمشاركة','🌍 إحصائيات تفصيلية لكل لغة','🏆 تحديات وأهداف أسبوعية']},
@@ -5866,6 +5910,7 @@ function renderLangStats(){
     tr:{name:'التركية',   flag:'🇹🇷', color:'EC4899'},
     ru:{name:'الروسية',   flag:'🇷🇺', color:'8B5CF6'},
     fa:{name:'الفارسية',  flag:'🇮🇷', color:'16A34A'},
+    ko:{name:'الكورية',   flag:'🇰🇷', color:'E11D48'},
   };
   // إحصاء الكلمات لكل لغة
   var counts={};
@@ -6079,7 +6124,7 @@ function startReadingQuiz(){
   document.getElementById('rquiz-result').style.display='none';
   rQuizData=[];
   var lang=detLang(tx);
-  var langNames={ar:'Arabic',en:'English',fr:'French',es:'Spanish',de:'German',tr:'Turkish',ru:'Russian',fa:'Persian'};
+  var langNames={ar:'Arabic',en:'English',fr:'French',es:'Spanish',de:'German',tr:'Turkish',ru:'Russian',fa:'Persian',ko:'Korean'};
   var langLabel=langNames[lang]||'English';
   var prompt='Text language: '+langLabel+'\n\nCreate 4 multiple choice questions about the following text.\nIMPORTANT: Write EVERY question and EVERY answer option in '+langLabel+' ONLY. Absolutely no other language.\n\nReturn ONLY a valid JSON array:\n[{"q":"question","opts":["opt1","opt2","opt3","opt4"],"ans":0}]\n\n"ans" = index (0-3) of correct answer.\n\nText:\n'+tx.substring(0,2500);
   fetch('https://api.groq.com/openai/v1/chat/completions',{
@@ -6205,9 +6250,9 @@ var chatMode='free'; // free | correct | qa
 var chatLang='ar';
 var chatLangNames={
   ar:'🇸🇦 عربي',   en:'🇺🇸 إنجليزي', fr:'🇫🇷 فرنسي',
-  de:'🇩🇪 ألماني', es:'🇪🇸 إسباني',  tr:'🇹🇷 تركي', ru:'🇷🇺 روسي', fa:'🇮🇷 فارسي'
+  de:'🇩🇪 ألماني', es:'🇪🇸 إسباني',  tr:'🇹🇷 تركي', ru:'🇷🇺 روسي', fa:'🇮🇷 فارسي', ko:'🇰🇷 كوري'
 };
-var chatLangList=['ar','en','fr','de','es','tr','ru','fa'];
+var chatLangList=['ar','en','fr','de','es','tr','ru','fa','ko'];
 var chatLangIdx=0;
 
 var voiceRec=null;
@@ -6385,20 +6430,18 @@ function toggleScannerVoice(){
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){ toast('⚠️ متصفحك لا يدعم التسجيل الصوتي — جرب Chrome'); return; }
 
-  // اختر لغة التسجيل من قائمة لغة المصدر
   var lf=document.getElementById('lf');
-  var langMap={ar:'ar-SA',fr:'fr-FR',en:'en-US',es:'es-ES',de:'de-DE',tr:'tr-TR',auto:'ar-SA'};
+  var langMap={ar:'ar-SA',fr:'fr-FR',en:'en-US',es:'es-ES',de:'de-DE',tr:'tr-TR',ru:'ru-RU',fa:'fa-IR',ko:'ko-KR',auto:'ar-SA'};
   var recLang=langMap[lf?lf.value:'auto']||'ar-SA';
 
   function startRec(){
     scannerVoiceRec=new SR();
     scannerVoiceRec.lang=recLang;
-    scannerVoiceRec.continuous=true;   // تسجيل مستمر حتى الإيقاف
+    scannerVoiceRec.continuous=true;
     scannerVoiceRec.interimResults=true;
     scannerVoiceRec.maxAlternatives=1;
     scannerVoiceActive=true;
 
-    // تغيير مظهر الزر
     var btn=document.getElementById('scanner-voice-btn');
     var ico=document.getElementById('scanner-voice-ico');
     var lbl=document.getElementById('scanner-voice-lbl');
@@ -6407,25 +6450,43 @@ function toggleScannerVoice(){
     if(lbl) lbl.textContent='إيقاف';
     document.getElementById('scanner-voice-indicator').style.display='block';
 
-    var interim='';
-    var finalText=document.getElementById('etxt').value;
+    // نص البداية فقط — لا نُضيف إليه عند الإعادة
+    var baseText=document.getElementById('etxt').value;
+    var confirmedText=baseText; // النص المؤكد نهائياً
+    var lastInterim=''; // آخر نص مؤقت
 
     scannerVoiceRec.onresult=function(e){
-      interim='';
+      var newFinal='';
+      var interim='';
+
       for(var i=e.resultIndex;i<e.results.length;i++){
         if(e.results[i].isFinal){
-          finalText+=e.results[i][0].transcript+' ';
+          newFinal+=e.results[i][0].transcript;
         } else {
           interim+=e.results[i][0].transcript;
         }
       }
-      document.getElementById('etxt').value=finalText+interim;
+
+      if(newFinal){
+        // أضف مسافة فقط إذا يوجد نص سابق
+        if(confirmedText&&!confirmedText.endsWith(' ')&&!confirmedText.endsWith('\n')){
+          confirmedText+=' ';
+        }
+        confirmedText+=newFinal;
+        lastInterim='';
+      }
+      lastInterim=interim;
+      // اعرض النص المؤكد + المؤقت
+      document.getElementById('etxt').value=confirmedText+(interim?' '+interim:'');
       onTI();
     };
 
     scannerVoiceRec.onend=function(){
-      // إذا لا يزال نشطاً (لم يُوقف يدوياً) أعد التشغيل للتسجيل المستمر
+      // عند الإعادة — حدّث baseText بما تم تأكيده
       if(scannerVoiceActive){
+        // أزل النص المؤقت قبل الإعادة
+        document.getElementById('etxt').value=confirmedText;
+        lastInterim='';
         try{ scannerVoiceRec.start(); }catch(e){ stopScannerVoice(); }
       }
     };
@@ -6606,7 +6667,7 @@ function diagVoices(){
     var lang=tx?loc(detLang(tx)):'ar-SA';
     var base=lang.split('-')[0];
     var matched=voices.filter(function(v){return v.lang.startsWith(base);});
-    var langNames={ar:'عربية',en:'إنجليزية',fr:'فرنسية',es:'إسبانية',de:'ألمانية',tr:'تركية',ru:'روسية',fa:'فارسية'};
+    var langNames={ar:'عربية',en:'إنجليزية',fr:'فرنسية',es:'إسبانية',de:'ألمانية',tr:'تركية',ru:'روسية',fa:'فارسية',ko:'كورية'};
     var lName=langNames[base]||base;
     if(matched.length){
       toast('✅ أصوات '+lName+': '+matched.length+' — '+matched[0].name);
@@ -6791,12 +6852,58 @@ window.addEventListener('appinstalled',function(){
   toast('🎉 تم تثبيت التطبيق بنجاح!');
 });
 function installApp(){
-  if(!deferredPrompt){toast('التطبيق مثبَّت أو غير متاح التثبيت');return;}
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(function(r){
-    if(r.outcome==='accepted')toast('🎉 جارٍ التثبيت…');
-    deferredPrompt=null;
-  });
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(r){
+      if(r.outcome==='accepted')toast('✅ تم تثبيت التطبيق!');
+      deferredPrompt=null;
+    });
+    return;
+  }
+  // تحقق من نوع الجهاز والمتصفح
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+  var isAndroid=/Android/.test(navigator.userAgent);
+  var isHTTPS=location.protocol==='https:';
+  var isLocal=location.protocol==='file:'||location.href.indexOf('content://')===0;
+
+  if(isIOS){
+    showInstallGuide(
+      '📱 تثبيت على iPhone/iPad',
+      '١. افتح هذا الرابط في Safari\n٢. اضغط على زر المشاركة ⬆️\n٣. اختر "إضافة إلى الشاشة الرئيسية"\n٤. اضغط "إضافة"'
+    );
+  } else if(isLocal){
+    showInstallGuide(
+      '🌐 كيف تثبت التطبيق؟',
+      'التثبيت يحتاج رفع الملف على الإنترنت:\n\n١. ارفع الملف على GitHub Pages\n٢. افتح الرابط في Chrome\n٣. اضغط ⋮ ثم "تثبيت التطبيق"\n\nأو: في Chrome اضغط ⋮ ← "إضافة إلى الشاشة الرئيسية"'
+    );
+  } else if(isAndroid&&isHTTPS){
+    showInstallGuide(
+      '📲 تثبيت على Android',
+      '١. اضغط على ⋮ في Chrome\n٢. اختر "تثبيت التطبيق"\n   أو "إضافة إلى الشاشة الرئيسية"\n٣. اضغط "تثبيت"'
+    );
+  } else {
+    showInstallGuide(
+      '💻 تثبيت على الكمبيوتر',
+      '١. في Chrome اضغط على أيقونة ⊕ في شريط العنوان\n٢. أو اضغط ⋮ ← "تثبيت LinguaLens"\n٣. اضغط "تثبيت"'
+    );
+  }
+}
+
+function showInstallGuide(title, msg){
+  var old=document.getElementById('install-guide-modal');
+  if(old)old.remove();
+  var m=document.createElement('div');
+  m.id='install-guide-modal';
+  m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99999;display:flex;align-items:flex-end;justify-content:center';
+  m.innerHTML='<div style="background:var(--surface);border-radius:20px 20px 0 0;padding:22px 18px 32px;width:100%;max-width:480px;direction:rtl">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">'
+    +'<button onclick="document.getElementById(\'install-guide-modal\').remove()" style="background:var(--bg);border:none;border-radius:8px;padding:5px 11px;font-size:1rem;cursor:pointer;color:var(--muted)">✕</button>'
+    +'<span style="font-size:1rem;font-weight:700;color:var(--text)">'+title+'</span>'
+    +'</div>'
+    +'<div style="background:var(--bg);border-radius:12px;padding:14px 16px;font-size:.88rem;color:var(--text);line-height:2;white-space:pre-line;text-align:right">'+msg+'</div>'
+    +'</div>';
+  m.onclick=function(e){if(e.target===m)m.remove();};
+  document.body.appendChild(m);
 }
 </script>
     <!-- شاشة الإملاء -->
