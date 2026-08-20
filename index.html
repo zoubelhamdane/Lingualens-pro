@@ -6450,15 +6450,13 @@ function toggleScannerVoice(){
     if(lbl) lbl.textContent='إيقاف';
     document.getElementById('scanner-voice-indicator').style.display='block';
 
-    // نص البداية فقط — لا نُضيف إليه عند الإعادة
-    var baseText=document.getElementById('etxt').value;
-    var confirmedText=baseText; // النص المؤكد نهائياً
-    var lastInterim=''; // آخر نص مؤقت
+    var confirmedText=document.getElementById('etxt').value;
 
     scannerVoiceRec.onresult=function(e){
       var newFinal='';
       var interim='';
 
+      // نبدأ من resultIndex فقط — لا نعيد معالجة النتائج القديمة
       for(var i=e.resultIndex;i<e.results.length;i++){
         if(e.results[i].isFinal){
           newFinal+=e.results[i][0].transcript;
@@ -6468,25 +6466,28 @@ function toggleScannerVoice(){
       }
 
       if(newFinal){
-        // أضف مسافة فقط إذا يوجد نص سابق
         if(confirmedText&&!confirmedText.endsWith(' ')&&!confirmedText.endsWith('\n')){
           confirmedText+=' ';
         }
-        confirmedText+=newFinal;
-        lastInterim='';
+        confirmedText+=newFinal.trim();
       }
-      lastInterim=interim;
-      // اعرض النص المؤكد + المؤقت
-      document.getElementById('etxt').value=confirmedText+(interim?' '+interim:'');
+      document.getElementById('etxt').value=confirmedText+(interim?' '+interim.trim():'');
       onTI();
     };
 
     scannerVoiceRec.onend=function(){
-      // عند الإعادة — حدّث baseText بما تم تأكيده
       if(scannerVoiceActive){
-        // أزل النص المؤقت قبل الإعادة
+        // أعد الكائن من جديد لمنع تراكم النتائج
         document.getElementById('etxt').value=confirmedText;
-        lastInterim='';
+        var newRec=new SR();
+        newRec.lang=recLang;
+        newRec.continuous=true;
+        newRec.interimResults=true;
+        newRec.maxAlternatives=1;
+        newRec.onresult=scannerVoiceRec.onresult;
+        newRec.onend=scannerVoiceRec.onend;
+        newRec.onerror=scannerVoiceRec.onerror;
+        scannerVoiceRec=newRec;
         try{ scannerVoiceRec.start(); }catch(e){ stopScannerVoice(); }
       }
     };
