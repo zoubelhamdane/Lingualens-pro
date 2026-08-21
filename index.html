@@ -6434,12 +6434,16 @@ function toggleScannerVoice(){
   var langMap={ar:'ar-SA',fr:'fr-FR',en:'en-US',es:'es-ES',de:'de-DE',tr:'tr-TR',ru:'ru-RU',fa:'fa-IR',ko:'ko-KR',auto:'ar-SA'};
   var recLang=langMap[lf?lf.value:'auto']||'ar-SA';
 
+  // متغير خارجي مشترك بين جميع جلسات التسجيل
+  var svConfirmed=document.getElementById('etxt').value;
+
   function startRec(){
-    scannerVoiceRec=new SR();
-    scannerVoiceRec.lang=recLang;
-    scannerVoiceRec.continuous=true;
-    scannerVoiceRec.interimResults=true;
-    scannerVoiceRec.maxAlternatives=1;
+    var rec=new SR();
+    rec.lang=recLang;
+    rec.continuous=false;  // جلسة واحدة — تمنع تراكم النتائج
+    rec.interimResults=true;
+    rec.maxAlternatives=1;
+    scannerVoiceRec=rec;
     scannerVoiceActive=true;
 
     var btn=document.getElementById('scanner-voice-btn');
@@ -6448,51 +6452,39 @@ function toggleScannerVoice(){
     if(btn){btn.style.borderColor='#ef4444';btn.style.color='#ef4444';btn.style.background='rgba(239,68,68,.08)';}
     if(ico) ico.textContent='⏹';
     if(lbl) lbl.textContent='إيقاف';
-    document.getElementById('scanner-voice-indicator').style.display='block';
+    var ind=document.getElementById('scanner-voice-indicator');
+    if(ind) ind.style.display='block';
 
-    var confirmedText=document.getElementById('etxt').value;
-
-    scannerVoiceRec.onresult=function(e){
-      var newFinal='';
+    rec.onresult=function(e){
       var interim='';
-
-      // نبدأ من resultIndex فقط — لا نعيد معالجة النتائج القديمة
-      for(var i=e.resultIndex;i<e.results.length;i++){
+      for(var i=0;i<e.results.length;i++){
         if(e.results[i].isFinal){
-          newFinal+=e.results[i][0].transcript;
+          var word=e.results[i][0].transcript.trim();
+          if(word){
+            if(svConfirmed&&!svConfirmed.endsWith(' ')&&!svConfirmed.endsWith('\n'))
+              svConfirmed+=' ';
+            svConfirmed+=word;
+          }
         } else {
           interim+=e.results[i][0].transcript;
         }
       }
-
-      if(newFinal){
-        if(confirmedText&&!confirmedText.endsWith(' ')&&!confirmedText.endsWith('\n')){
-          confirmedText+=' ';
-        }
-        confirmedText+=newFinal.trim();
-      }
-      document.getElementById('etxt').value=confirmedText+(interim?' '+interim.trim():'');
+      document.getElementById('etxt').value=svConfirmed+(interim?' '+interim.trim():'');
       onTI();
     };
 
-    scannerVoiceRec.onend=function(){
+    rec.onend=function(){
+      // أغلق الـ interim وأبدأ جلسة جديدة نظيفة
+      document.getElementById('etxt').value=svConfirmed;
+      onTI();
       if(scannerVoiceActive){
-        // أعد الكائن من جديد لمنع تراكم النتائج
-        document.getElementById('etxt').value=confirmedText;
-        var newRec=new SR();
-        newRec.lang=recLang;
-        newRec.continuous=true;
-        newRec.interimResults=true;
-        newRec.maxAlternatives=1;
-        newRec.onresult=scannerVoiceRec.onresult;
-        newRec.onend=scannerVoiceRec.onend;
-        newRec.onerror=scannerVoiceRec.onerror;
-        scannerVoiceRec=newRec;
-        try{ scannerVoiceRec.start(); }catch(e){ stopScannerVoice(); }
+        setTimeout(function(){
+          if(scannerVoiceActive) startRec();
+        },150);
       }
     };
 
-    scannerVoiceRec.onerror=function(e){
+    rec.onerror=function(e){
       var msgs={
         'not-allowed':'⚠️ الميكروفون محظور — اسمح له من إعدادات المتصفح',
         'no-speech':'',
@@ -6501,21 +6493,25 @@ function toggleScannerVoice(){
       };
       var msg=msgs[e.error]||('❌ خطأ: '+e.error);
       if(msg) toast(msg);
-      if(e.error!=='no-speech') stopScannerVoice();
+      if(e.error!=='no-speech'&&e.error!=='aborted') stopScannerVoice();
     };
 
-    try{ scannerVoiceRec.start(); }
+    try{ rec.start(); }
     catch(e){ stopScannerVoice(); toast('❌ فشل التسجيل'); }
+  }
+
+  function go(){
+    startRec();
   }
 
   if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){
     navigator.mediaDevices.getUserMedia({audio:true})
-    .then(function(stream){ stream.getTracks().forEach(function(t){t.stop();}); startRec(); })
+    .then(function(stream){ stream.getTracks().forEach(function(t){t.stop();}); go(); })
     .catch(function(e){
       if(e.name==='NotAllowedError') toast('⚠️ اسمح للمتصفح باستخدام الميكروفون');
       else toast('⚠️ لا يمكن الوصول للميكروفون');
     });
-  } else { startRec(); }
+  } else { go(); }
 }
 
 function stopScannerVoice(){
