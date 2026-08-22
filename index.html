@@ -317,6 +317,7 @@ body.focus-mode #focus-btn{color:#f59e0b!important;border-color:#f59e0b!importan
 <div id="lock">
   <h1>🔤 LinguaLens</h1>
   <p>تعلّم اللغات بذكاء</p>
+  <p style="font-size:.65rem;opacity:.6;margin-top:-10px">build 2026-08-23-02</p>
   <div class="lcard">
     <p>🔑 أدخل المفتاح للمتابعة</p>
     <div class="key-field">
@@ -2863,7 +2864,7 @@ function fetchYtWithGroq(vid, url, btn){
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
       body:JSON.stringify({
-        model:'llama-3.3-70b-versatile',
+        model:'openai/gpt-oss-120b',
         messages:[{role:'user',content:prompt}],
         max_tokens:2000,
         temperature:0.3
@@ -3070,7 +3071,7 @@ function transWithGroq(tx,f,t){
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:3000,
       messages:[
         {role:'system',content:'أنت مترجم محترف. ترجم النص المُعطى من '+( langNames[f]||f)+' إلى '+(langNames[t]||t)+' بدقة وأسلوب طبيعي. أعد النص المترجم فقط بدون تعليق أو مقدمة.'},
@@ -3165,7 +3166,7 @@ function fixWithGroq(tx,btn){
       'Authorization':'Bearer '+GROQ_KEY
     },
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:2000,
       messages:[
         {role:'system',content:'أنت مصحح نصوص عربية متخصص في إصلاح أخطاء OCR. مهمتك: صحّح الحروف المقلوبة والكلمات المشوهة الناتجة عن OCR دون تغيير المعنى. أعد النص المصحح فقط بدون أي تعليق أو مقدمة أو علامة اقتباس.'},
@@ -3262,7 +3263,7 @@ function trWord(w,f,t,ctx){
     return fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
-      body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:60,messages:[{role:'user',content:prompt}]})
+      body:JSON.stringify({model:'openai/gpt-oss-120b',max_tokens:60,messages:[{role:'user',content:prompt}]})
     })
     .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
     .then(function(d){
@@ -3538,7 +3539,7 @@ function loadPopExample(){
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
       body:JSON.stringify({
-        model:'llama-3.3-70b-versatile',
+        model:'openai/gpt-oss-120b',
         max_tokens:150,
         messages:[{role:'user',content:
           'Write ONE short sentence using "'+word+'" in '+lang+'.\n'+
@@ -3612,7 +3613,7 @@ function loadPopSyns(){
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
       body:JSON.stringify({
-        model:'llama-3.3-70b-versatile',max_tokens:200,
+        model:'openai/gpt-oss-120b',max_tokens:200,
         messages:[{role:'user',content:
           'For the '+lang+' word "'+word+'", give:\n'+
           '1. Up to 4 synonyms in '+lang+'\n'+
@@ -4256,7 +4257,7 @@ function generateSuggestedText(){
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:300,
       messages:[
         {role:'system',content:'You are a language teacher. Generate engaging, level-appropriate texts. Output ONLY the text, no titles or explanations.'},
@@ -6060,7 +6061,7 @@ function callExplain(tx,type){
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:800,
       messages:[
         {role:'system',content:sysMsg},
@@ -6096,7 +6097,7 @@ function translateExplainToAr(){
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:800,
       messages:[
         {role:'system',content:'أنت مترجم. ترجم النص التالي إلى العربية بدقة بدون أي تعليق.'},
@@ -6131,7 +6132,7 @@ function startReadingQuiz(){
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:1200,
       messages:[
         {role:'system',content:'You are a reading comprehension teacher. You MUST write ALL questions and answers in '+langLabel+' language ONLY. Never use any other language. Return ONLY valid JSON array, no markdown, no extra text.'},
@@ -6383,7 +6384,7 @@ function callGroqChat(sys,messages,isAutoStart){
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
     body:JSON.stringify({
-      model:'llama-3.3-70b-versatile',
+      model:'openai/gpt-oss-120b',
       max_tokens:500,
       messages:[{role:'system',content:sys}].concat(messages)
     })
@@ -6417,11 +6418,55 @@ function spkChat(text){
 
 /* التعرف على الصوت */
 /* ── تسجيل صوتي للماسح ─────────────────────────── */
+// يُعالج التكرار الفعلي القادم من محرك التعرف الصوتي نفسه (خاصة على أندرويد)
+// الذي يُصدر أحياناً نفس الكلمة/العبارة كنتيجة نهائية مكررة عدة مرات متتالية
+function collapseRepeats(text){
+  var words=text.split(/\s+/).filter(Boolean);
+  // مرحلة 1: احذف تكرار كلمة واحدة متتالية (hello hello -> hello)
+  var out=[];
+  for(var i=0;i<words.length;i++){
+    if(out.length&&out[out.length-1].toLowerCase()===words[i].toLowerCase()) continue;
+    out.push(words[i]);
+  }
+  words=out;
+  // مرحلة 2: احذف تكرار عبارات من 2 إلى 4 كلمات متتالية (I am I am -> I am)
+  var changed=true;
+  while(changed){
+    changed=false;
+    for(var n=4;n>=2;n--){
+      var res=[];
+      var idx=0;
+      while(idx<words.length){
+        if(idx+2*n<=words.length){
+          var a=words.slice(idx,idx+n).join(' ').toLowerCase();
+          var b=words.slice(idx+n,idx+2*n).join(' ').toLowerCase();
+          if(a===b){
+            var reps=2;
+            while(idx+(reps+1)*n<=words.length&&words.slice(idx+reps*n,idx+(reps+1)*n).join(' ').toLowerCase()===a){
+              reps++;
+            }
+            res.push.apply(res,words.slice(idx,idx+n));
+            idx+=reps*n;
+            changed=true;
+            continue;
+          }
+        }
+        res.push(words[idx]);
+        idx++;
+      }
+      words=res;
+    }
+  }
+  return words.join(' ');
+}
+
 var scannerVoiceRec = null;
 var scannerVoiceActive = false;
+var scannerVoiceStarting = false; // يمنع بدء جلستين متوازيتين عند نقر مزدوج سريع
 
 function toggleScannerVoice(){
   if(scannerVoiceActive){ stopScannerVoice(); return; }
+  if(scannerVoiceStarting) return; // طلب إذن الميكروفون قيد الانتظار بالفعل
 
   if(location.protocol!=='https:'&&location.hostname!=='localhost'){
     toast('🔒 الميكروفون يحتاج HTTPS');
@@ -6429,12 +6474,14 @@ function toggleScannerVoice(){
   }
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){ toast('⚠️ متصفحك لا يدعم التسجيل الصوتي — جرب Chrome'); return; }
+  scannerVoiceStarting=true;
 
   var lf=document.getElementById('lf');
   var langMap={ar:'ar-SA',fr:'fr-FR',en:'en-US',es:'es-ES',de:'de-DE',tr:'tr-TR',ru:'ru-RU',fa:'fa-IR',ko:'ko-KR',auto:'ar-SA'};
   var recLang=langMap[lf?lf.value:'auto']||'ar-SA';
 
   function startRec(){
+    scannerVoiceStarting=false;
     scannerVoiceRec=new SR();
     scannerVoiceRec.lang=recLang;
     scannerVoiceRec.continuous=true;
@@ -6479,6 +6526,8 @@ function toggleScannerVoice(){
           confirmedText+=' ';
         }
         confirmedText+=newFinal;
+        // نظّف التكرارات التي قد يُصدرها محرك التعرف الصوتي نفسه (خاصة على أندرويد)
+        confirmedText=collapseRepeats(confirmedText);
         lastInterim='';
       }
       lastInterim=interim;
@@ -6522,6 +6571,7 @@ function toggleScannerVoice(){
     navigator.mediaDevices.getUserMedia({audio:true})
     .then(function(stream){ stream.getTracks().forEach(function(t){t.stop();}); startRec(); })
     .catch(function(e){
+      scannerVoiceStarting=false;
       if(e.name==='NotAllowedError') toast('⚠️ اسمح للمتصفح باستخدام الميكروفون');
       else toast('⚠️ لا يمكن الوصول للميكروفون');
     });
@@ -6530,6 +6580,7 @@ function toggleScannerVoice(){
 
 function stopScannerVoice(){
   scannerVoiceActive=false;
+  scannerVoiceStarting=false;
   if(scannerVoiceRec){try{scannerVoiceRec.abort();}catch(e){}}
   scannerVoiceRec=null;
   var btn=document.getElementById('scanner-voice-btn');
