@@ -6419,11 +6419,9 @@ function spkChat(text){
 /* ── تسجيل صوتي للماسح ─────────────────────────── */
 var scannerVoiceRec = null;
 var scannerVoiceActive = false;
-var scannerVoiceStarting = false; // يمنع بدء جلستين متوازيتين عند نقر مزدوج سريع
 
 function toggleScannerVoice(){
   if(scannerVoiceActive){ stopScannerVoice(); return; }
-  if(scannerVoiceStarting) return; // طلب إذن الميكروفون قيد الانتظار بالفعل
 
   if(location.protocol!=='https:'&&location.hostname!=='localhost'){
     toast('🔒 الميكروفون يحتاج HTTPS');
@@ -6431,14 +6429,12 @@ function toggleScannerVoice(){
   }
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){ toast('⚠️ متصفحك لا يدعم التسجيل الصوتي — جرب Chrome'); return; }
-  scannerVoiceStarting=true;
 
   var lf=document.getElementById('lf');
   var langMap={ar:'ar-SA',fr:'fr-FR',en:'en-US',es:'es-ES',de:'de-DE',tr:'tr-TR',ru:'ru-RU',fa:'fa-IR',ko:'ko-KR',auto:'ar-SA'};
   var recLang=langMap[lf?lf.value:'auto']||'ar-SA';
 
   function startRec(){
-    scannerVoiceStarting=false;
     scannerVoiceRec=new SR();
     scannerVoiceRec.lang=recLang;
     scannerVoiceRec.continuous=true;
@@ -6526,7 +6522,6 @@ function toggleScannerVoice(){
     navigator.mediaDevices.getUserMedia({audio:true})
     .then(function(stream){ stream.getTracks().forEach(function(t){t.stop();}); startRec(); })
     .catch(function(e){
-      scannerVoiceStarting=false;
       if(e.name==='NotAllowedError') toast('⚠️ اسمح للمتصفح باستخدام الميكروفون');
       else toast('⚠️ لا يمكن الوصول للميكروفون');
     });
@@ -6535,7 +6530,6 @@ function toggleScannerVoice(){
 
 function stopScannerVoice(){
   scannerVoiceActive=false;
-  scannerVoiceStarting=false;
   if(scannerVoiceRec){try{scannerVoiceRec.abort();}catch(e){}}
   scannerVoiceRec=null;
   var btn=document.getElementById('scanner-voice-btn');
